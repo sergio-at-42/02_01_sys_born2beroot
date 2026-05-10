@@ -12,28 +12,13 @@ strcenter() {
     if (( len > max )); then
         echo "${text:0:max}"
     else
-        echo "${psp:0:pl}$text${psp:0:pr}"
+        echo "${psp:0:pl}${text}${psp:0:pr}"
     fi
 }
 
-arg1() {
-    echo $1
-}
-
-arg2() {
-    echo $2
-}
-
-arg3() {
-    echo $3
-}
-
-arg4() {
-    echo $4
-}
-
-arg7() {
-    echo $7
+arg() {
+    local a=$(($1+1))
+    echo ${!a}
 }
 
 #echo "╒══════════════════════════════════════════════════════════════════════════════╕"
@@ -62,70 +47,66 @@ echo "░                                                                       
 echo "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░"
 
 text=$(date)
-str=$(strcenter "$text" 78)
+str=$(strcenter "${text}" 78)
 echo ""
 echo "╒══════════════════════════════════════════════════════════════════════════════╕"
-echo "│$str│"
+echo "│${str}│"
 
 echo "╞══════════════════════════════════════════════════════════════════════════════╡"
 text="Operating sytem"
-str=$(strcenter "$text" 78)
-echo "│$str│"
+str=$(strcenter "${text}" 78)
+echo "│${str}│"
 
 echo "├──────────────────────────────────────┬┬──────────────────────────────────────┤"
 text="Architecture : $(uname -m)"
-str1=$(strcenter "$text" 38)
+str1=$(strcenter "${text}" 38)
 text="Kernel : $(uname -s)"
-str2=$(strcenter "$text" 38)
-echo "│$str1││$str2│"
+str2=$(strcenter "${text}" 38)
+echo "│${str1}││${str2}│"
 
 echo "├──────────────────────────────────────┴┴──────────────────────────────────────┤"
 text="Version : $(uname -r)"
-str=$(strcenter "$text" 78)
-# text=$(uname -r)
-# str2=$(strcenter "$text" 38)
-echo "│$str│"
+str=$(strcenter "${text}" 78)
+echo "│${str}│"
 
 echo "╞══════════════════════════════════════╤╤══════════════════════════════════════╡"
 text="Hostname: $(hostname)"
-str1=$(strcenter "$text" 38)
-ipv4=$(arg1 $(hostname -I))
+str1=$(strcenter "${text}" 38)
+ipv4=$(arg 1 $(hostname -I))
 text="IP V4 : $ipv4"
-str2=$(strcenter "$text" 38)
-echo "│$str1││$str2│"
+str2=$(strcenter "${text}" 38)
+echo "│${str1}││${str2}│"
 
 echo "╞══════════════════════════════════════╪╪══════════════════════════════════════╡"
-nbsocket=$(arg2 $(lscpu | grep "^Socket(s)"))
-nbcore=$(arg4 $(lscpu | grep "^Core(s)"))
+nbsocket=$(arg 2 $(lscpu | grep "^Socket(s)"))
+nbcore=$(arg 4 $(lscpu | grep "^Core(s)"))
 nbpcpu=$((nbsocket*nbcore))
 text="Number of physical processors: $nbpcpu"
-str1=$(strcenter "$text" 38)
-nbvcpu=$(arg2 $(lscpu | grep "^CPU(s)"))
+str1=$(strcenter "${text}" 38)
+nbvcpu=$(arg 2 $(lscpu | grep "^CPU(s)"))
 text="Number of virtual processors: $nbvcpu"
-str2=$(strcenter "$text" 38)
-echo "│$str1││$str2│"
+str2=$(strcenter "${text}" 38)
+echo "│${str1}││${str2}│"
 
 echo "╞══════════════════════════════════════╪╪══════════════════════════════════════╡"
-ramavaible=$(arg7 $(free -h | grep "^Mem"))
-text="Currently available RAM: $ramavaible"
-str1=$(strcenter "$text" 38)
-ramused=$(arg3 $(free | grep "^Mem"))
-ramtotal=$(arg2 $(free | grep "^Mem"))
+ramavaible=$(arg 7 $(free -h | grep "^Mem"))
+text="Currently available RAM: ${ramavaible}"
+str1=$(strcenter "${text}" 38)
+ramused=$(arg 3 $(free | grep "^Mem"))
+ramtotal=$(arg 2 $(free | grep "^Mem"))
 ramusedpourcent=$((100*ramused/ramtotal))
-text="Utilization rate: $ramusedpourcent%"
-str2=$(strcenter "$text" 38)
-echo "│$str1││$str2│"
+text="Utilization rate: ${ramusedpourcent}%"
+str2=$(strcenter "${text}" 38)
+echo "│${str1}││${str2}│"
 
 echo "╞══════════════════════════════════════╪╪══════════════════════════════════════╡"
-storageavaible=$(arg7 $(free -h | grep "^Mem"))
-text="Currently available storage: $storageavaible"
-str1=$(strcenter "$text" 38)
-ramused=$(arg3 $(free | grep "^Mem"))
-ramtotal=$(arg2 $(free | grep "^Mem"))
-ramusedpourcent=$((100*ramused/ramtotal))
-text="Utilization rate: $ramusedpourcent%"
-str2=$(strcenter "$text" 38)
-echo "│$str1││$str2│"
+storageavaible=$(arg 2 $(df -h / | grep "^/"))
+text="Currently available storage: ${storageavaible}"
+str1=$(strcenter "${text}" 38)
+storageused=$(arg 5 $(df -h / | grep "^/"))
+text="Utilization rate: ${storageused}"
+str2=$(strcenter "${text}" 38)
+echo "│${str1}││${str2}│"
 
 echo "╘══════════════════════════════════════════════════════════════════════════════╛"
 echo ""
@@ -134,8 +115,4 @@ echo ""
 
 echo "Uptime: $(uptime -p)"
 echo "CPU Load: $(uptime | awk -F'load average:' '{print $2}')"
-echo ""
-echo ""
-echo "Disk:"
-df -h
 echo ""
