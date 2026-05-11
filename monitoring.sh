@@ -1,5 +1,29 @@
-  GNU nano 8.4                                                    monitoring.sh                                                             
 #!/usr/bin/env bash
+
+#echo "╒══════════════════════════════════════════════════════════════════════════════╕"
+#echo "│                                                                              │"
+#echo "╞══════════════════════════════════════════════════════════════════════════════╡"
+#echo "├──────────────────────────────────────────────────────────────────────────────┤"
+#echo "│                                                                              │"
+#echo "╘══════════════════════════════════════════════════════════════════════════════╛"
+#echo "╔═╦╗ ┌─┬┐ ╒═╤╕ ╓─╥╖"
+#echo "╠═╬╣ ├─┼┤ ╞═╪╡ ╟─╫╢"
+#echo "╚═╩╝ └─┴┘ ╘═╧╛ ╙─╨╜"
+
+echo ""
+echo "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░"
+echo "░                                                                              ░"
+echo "░                               ____________/\\\\\\_______/\\\\\\\\\\\\\\\\\\_____         ░"
+echo "░       ▒▒▒               ▒▒▒    __________/\\\\\\\\\\_____/\\\\\\///////\\\\\\___        ░"
+echo "░          ▒▒▒         ▒▒▒        ________/\\\\\\/\\\\\\____\\///______\\//\\\\\\__       ░"
+echo "░       ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒      ______/\\\\\\/\\/\\\\\\______________/\\\\\\/___      ░"
+echo "░    ▒▒▒▒▒▒   ▒▒▒▒▒▒▒▒▒   ▒▒▒▒▒▒    ____/\\\\\\/__\\/\\\\\\___________/\\\\\\//_____     ░"
+echo "░ ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  __/\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\_____/\\\\\\//________    ░"
+echo "░ ▒▒▒   ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒   ▒▒▒   _\\///////////\\\\\\//____/\\\\\\/___________   ░"
+echo "░ ▒▒▒   ▒▒▒               ▒▒▒   ▒▒▒    ___________\\/\\\\\\_____/\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\_  ░"
+echo "░          ▒▒▒▒▒▒   ▒▒▒▒▒▒              ___________\\///_____\\///////////////__ ░"
+echo "░                                                                              ░"
+echo "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░"
 
 color_reset="\e[0m"
 color_frame="\e[0;34;46m"
@@ -59,36 +83,15 @@ arg() {
     echo ${!a}
 }
 
-#echo "╒══════════════════════════════════════════════════════════════════════════════╕"
-#echo "│                                                                              │"
-#echo "╞══════════════════════════════════════════════════════════════════════════════╡"
-#echo "├──────────────────────────────────────────────────────────────────────────────┤"
-#echo "│                                                                              │"
-#echo "╘══════════════════════════════════════════════════════════════════════════════╛"
-#echo "╔═╦╗ ┌─┬┐ ╒═╤╕ ╓─╥╖"
-#echo "╠═╬╣ ├─┼┤ ╞═╪╡ ╟─╫╢"
-#echo "╚═╩╝ └─┴┘ ╘═╧╛ ╙─╨╜"
-
-echo ""
-echo "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░"
-echo "░                                                                              ░"
-echo "░                               ____________/\\\\\\_______/\\\\\\\\\\\\\\\\\\_____         ░"
-echo "░       ▒▒▒               ▒▒▒    __________/\\\\\\\\\\_____/\\\\\\///////\\\\\\___        ░"
-echo "░          ▒▒▒         ▒▒▒        ________/\\\\\\/\\\\\\____\\///______\\//\\\\\\__       ░"
-echo "░       ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒      ______/\\\\\\/\\/\\\\\\______________/\\\\\\/___      ░"
-echo "░    ▒▒▒▒▒▒   ▒▒▒▒▒▒▒▒▒   ▒▒▒▒▒▒    ____/\\\\\\/__\\/\\\\\\___________/\\\\\\//_____     ░"
-echo "░ ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  __/\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\_____/\\\\\\//________    ░"
-echo "░ ▒▒▒   ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒   ▒▒▒   _\\///////////\\\\\\//____/\\\\\\/___________   ░"
-echo "░ ▒▒▒   ▒▒▒               ▒▒▒   ▒▒▒    ___________\\/\\\\\\_____/\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\_  ░"
-echo "░          ▒▒▒▒▒▒   ▒▒▒▒▒▒              ___________\\///_____\\///////////////__ ░"
-echo "░                                                                              ░"
-echo "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░"
-
 echo ""
 disp_first_line 80
 
 # Display Date and Time
 text=$(date)
+str=$(strcenter "${text}" 78)
+disp_content "${str}" 80
+
+text="Last boot : $(uptime -p)"
 str=$(strcenter "${text}" 78)
 disp_content "${str}" 80
 
@@ -113,10 +116,18 @@ str=$(strcenter "${text}" 78)
 disp_content "${str}" 80
 
 ipv4=$(arg 1 $(hostname -I))
-text="IP V4 : $ipv4"
+text="IP V4 : ${ipv4}"
 str1=$(strcenter "${text}" 39)
-mac=$(arg 1 $(hostname -I))
-text="MAC Addresse : $ipv4"
+mac=$(arg 2 $(ip link | grep "ether"))
+text="MAC Addresse : ${mac}"
+str2=$(strcenter "${text}" 39)
+disp_content "${str1}${str2}" 80
+
+connections=$(($(ss -tun | wc -l) - 1 ))
+text="Active connections : ${connections}"
+str1=$(strcenter "${text}" 39)
+users=$(who | wc -l)
+text="Users connected : ${users}"
 str2=$(strcenter "${text}" 39)
 disp_content "${str1}${str2}" 80
 
@@ -133,35 +144,50 @@ text="Number of virtual processors: $nbvcpu"
 str2=$(strcenter "${text}" 39)
 disp_content "${str1}${str2}" 80
 
+cpupourcent=$(echo "100 - $(arg 8 $(top -bn1 | grep "Cpu(s)"))" | bc)
+text="CPU utilization rate : ${cpupourcent}%"
+str=$(strcenter "${text}" 78)
+disp_content "${str}" 80
+
 # Display RAM informations
 disp_title "RAM" 80
 
 ramavaible=$(arg 7 $(free -h | grep "^Mem"))
-text="Currently available RAM: ${ramavaible}"
+text="Currently available RAM : ${ramavaible}"
 str1=$(strcenter "${text}" 39)
 ramused=$(arg 3 $(free | grep "^Mem"))
 ramtotal=$(arg 2 $(free | grep "^Mem"))
-ramusedpourcent=$((100*ramused/ramtotal))
-text="Utilization rate: ${ramusedpourcent}%"
+rampourcent=$((100*ramused/ramtotal))
+text="RAM utilization rate : ${rampourcent}%"
 str2=$(strcenter "${text}" 39)
 disp_content "${str1}${str2}" 80
 
-# Display RAM informations
+# Display Storage informations
 disp_title "Storage" 80
 
 storageavaible=$(arg 2 $(df -h / | grep "^/"))
-text="Currently available storage: ${storageavaible}"
+text="Currently available storage : ${storageavaible}"
 str1=$(strcenter "${text}" 39)
 storageused=$(arg 5 $(df -h / | grep "^/"))
-text="Utilization rate: ${storageused}"
+text="Storage utilization rate : ${storageused}"
 str2=$(strcenter "${text}" 39)
 disp_content "${str1}${str2}" 80
 
+if lsblk | grep -q "lvm"; then
+    lvm="Active"
+else
+    lvm="Not Active"
+fi
+text="Logical Volume Manager (LVM) : ${lvm}"
+str=$(strcenter "${text}" 78)
+disp_content "${str}" 80
+
+# Display SUDO informations
+disp_title "sudo" 80
+
+text="Number of commands executed with sudo : $(journalctl -q | grep "COMMAND=" | wc -l)"
+str=$(strcenter "${text}" 78)
+disp_content "${str}" 80
+
 disp_last_line 80
-echo ""
-
-
-
-echo "Uptime: $(uptime -p)"
-echo "CPU Load: $(uptime | awk -F'load average:' '{print $2}')"
 echo ""
