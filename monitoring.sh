@@ -144,7 +144,8 @@ text="Number of virtual processors: $nbvcpu"
 str2=$(strcenter "${text}" 39)
 disp_content "${str1}${str2}" 80
 
-cpupourcent=$(echo "100 - $(arg 8 $(top -bn1 | grep "Cpu(s)"))" | bc)
+#cpupourcent=$(echo "100 - $(arg 8 $(top -bn1 | grep "Cpu(s)"))" | bc)
+cpupourcent=$(echo "100 - $(arg 15 $(vmstat | tail -n1))" | bc)
 text="CPU utilization rate : ${cpupourcent}%"
 str=$(strcenter "${text}" 78)
 disp_content "${str}" 80
