@@ -22,4 +22,4 @@
 # 
 # m h  dom mon dow   command
 
-* * * * * /home/sbeldjao/monitoring_everywhere.sh
+*/10 * * * * /home/sbeldjao/monitoring_everywhere.sh

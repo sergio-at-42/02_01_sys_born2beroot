@@ -77,10 +77,10 @@ PermitRootLogin no
 ```
 systemctl restart ssh  
 
-### IP
+### IP   
 ip address  
 
-### UFW (Uncomplicated Firewall)
+### UFW (Uncomplicated Firewall)   
 apt install ufw  
 ufw status  
 ufw status numbered  
@@ -91,7 +91,14 @@ ufw allow 4242
 ufw deny 22  
 ufw delete 2 4  
 
-### SELinux
+### ApArmor
+aa-status	état AppArmor
+aa-enforce	mode actif
+aa-complain	audit
+aa-disable	désactiver
+aa-genprof	créer profil
+
+### SELinux   
 apt install selinux-basics selinux-policy-default auditd   *Installer SELinux*  
 selinux-activate   *configure SELinux, modifie le boot, prépare les labels*  
 sestatus   *Vérifier le statut*  
