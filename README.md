@@ -66,6 +66,23 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 apt install sudo  
 addusers sbeldjao sudo  
 
+### Mot de passe  
+sudo apt install libpam-pwquality  
+
+sudo nano /etc/security/pwquality.conf  
+* minlen	*longueur minimale*  
+* dcredit=-1	*au moins 1 chiffre*  
+* ucredit=-1	*au moins 1 majuscule*  
+* lcredit=-1	*au moins 1 minuscule*  
+* ocredit=-1	*au moins 1 caractère spécial*  
+* maxrepeat	    *répétitions max*  
+* difok         *différences avec ancien mdp*  
+
+sudo nano /etc/login.defs
+* PASS_MAX_DAYS	*expiration*  
+* PASS_MIN_DAYS	*délai avant changement*  
+* PASS_WARN_AGE	*avertissement*  
+
 ### Open SSH
 apt install ssh  
 sshd_config  
