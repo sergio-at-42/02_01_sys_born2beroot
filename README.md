@@ -65,24 +65,63 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 ### SUDO
 apt install sudo  
 addusers sbeldjao sudo  
+  
+#### Ajouter un utilisateur a sudo  
+adduser *user* sudo
+usermod -aG sudo *user*
 
+#### Edition de /etc/sudoers  
+sudo visudo  
+
+Defaults requiretty                     *Obligation d'utiliser un terminal interactif pour sudo*
+Defaults timestamp_timeout=5            *Mémorise l’authentification, en minutes*  
+Defaults logfile="/var/log/sudo.log"    *Definir le fichier de log pour sudo*  
+Defaults passwd_tries=3                 *Nombre d'essai en cas d'erreur de mot de passe*
+  
 ### Mot de passe  
 sudo apt install libpam-pwquality  
 
 sudo nano /etc/security/pwquality.conf  
-* minlen	*longueur minimale*  
-* dcredit=-1	*au moins 1 chiffre*  
-* ucredit=-1	*au moins 1 majuscule*  
-* lcredit=-1	*au moins 1 minuscule*  
-* ocredit=-1	*au moins 1 caractère spécial*  
-* maxrepeat	    *répétitions max*  
-* difok         *différences avec ancien mdp*  
+* minlen            *longueur minimale*  
+* minclass=1        *nombr minimum de caractère par classes*
+* dcredit=-1	    *au moins 1 chiffre*  
+* ucredit=-1	    *au moins 1 majuscule*  
+* lcredit=-1	    *au moins 1 minuscule*  
+* ocredit=-1	    *au moins 1 caractère spécial*  
+* maxrepeat         *répétitions max*  
+* difok             *différences avec ancien mdp*  
+* retry             *tentatives*  
+* enforce_for_root  *appliquer aussi a root*  
+* dictcheck         *verification dans un dictionnaire*
+```bash
+difok = 7
+minlen = 10
+dcredit = -1
+ucredit = -1
+lcredit = -1
+maxrepeat = 3
+usercheck = 1
+enforce_for_root
+```
 
 sudo nano /etc/login.defs
 * PASS_MAX_DAYS	*expiration*  
 * PASS_MIN_DAYS	*délai avant changement*  
 * PASS_WARN_AGE	*avertissement*  
-
+```bash
+PASS_MAX_DAYS   30   
+PASS_MIN_DAYS   2
+PASS_WARN_AGE   7
+```   
+#### Activation de PAM  
+sudo nano /etc/pam.d/common-password  
+*Verifier la presence de :* **password requisite pam_pwquality.so retry=3**  
+*Optionnel; hitorique des mots de passe :* **password requisite pam_pwhistory.so remember=5**  
+  
+#### Status du mot de passe  
+chage -l *user*  
+passwd --status  
+  
 ### Open SSH
 apt install ssh  
 sshd_config  
