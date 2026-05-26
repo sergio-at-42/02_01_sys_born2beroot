@@ -77,6 +77,8 @@ Defaults requiretty                     *Obligation d'utiliser un terminal inter
 Defaults timestamp_timeout=5            *Mémorise l’authentification, en minutes*  
 Defaults logfile="/var/log/sudo.log"    *Definir le fichier de log pour sudo*  
 Defaults passwd_tries=3                 *Nombre d'essai en cas d'erreur de mot de passe*
+Defaults passprompt="[sudo] Password for %u: "  *Personnalise le prompt*  
+Defaults badpass_message="Wrong password."  *message erreur*  
   
 ### Mot de passe  
 sudo apt install libpam-pwquality  
@@ -149,16 +151,17 @@ ufw deny 22
 ufw delete 2 4  
 
 ### ApArmor
-aa-status	état AppArmor
-aa-enforce	mode actif
-aa-complain	audit
-aa-disable	désactiver
-aa-genprof	créer profil
+aa-status   *état AppArmor*  
+aa-enforce	*mode actif*  
+aa-complain	*audit*  
+aa-disable	*désactiver*  
+aa-genprof	*créer profil*  
 
 ### SELinux   
 apt install selinux-basics selinux-policy-default auditd   *Installer SELinux*  
 selinux-activate   *configure SELinux, modifie le boot, prépare les labels*  
 sestatus   *Vérifier le statut*  
+
 **Modes SELinux**  
  - enforcing   *bloque selon les règles*  
  - permissive   *log seulement*  
