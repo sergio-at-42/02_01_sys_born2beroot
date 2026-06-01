@@ -136,6 +136,10 @@ PermitRootLogin no
 ```
 systemctl restart ssh  
 
+### Hostname   
+hostnamectl *ou* hostname               *Afficher le hotsname actuel*  
+hostnamectl set-hostname new_hostname   *Modifier le hostname*  
+
 ### IP   
 ip address  
 
