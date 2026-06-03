@@ -12,7 +12,7 @@ Step into the world of virtualization and learn how to create and manage isolate
 This project introduces key concepts that are foundational to modern infrastructure and cloud technologies, teaching learners essential system administration skills through hands-on virtual machine configuration and security implementation.  
 
 ## Instructions  
-The *signature.txt* file was create with the **shasum sbeldjao.vdi** command.  
+The *signature.txt* file was create with the **sha1sum sbeldjao.vdi** command.  
 In VirtualBox, use a copy of **sbeldjao42** directory to launch the virtual machine **sbeldjao.vbox**.  
 Connect to the virtual machine via SSH on port 4242.  
 
